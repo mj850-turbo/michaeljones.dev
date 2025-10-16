@@ -7,15 +7,27 @@ import { ExternalLink, ArrowRight, Code2, Activity, MapPin } from "lucide-react"
 import { projects } from "@/data/projects";
 import ProjectCard from "@/components/project-card";
 import { motion } from "framer-motion";
+import Balancer from "react-wrap-balancer";
 
 export default function Home() {
   return (
     <div className="space-y-14">
-      <section className="relative overflow-hidden rounded-3xl border ring-1 ring-inset ring-white/5 p-8 md:p-12 text-center md:text-left bg-[linear-gradient(135deg,rgba(74,127,167,.18)_0%,rgba(26,61,99,.18)_100%)]">
+      <section
+        className="relative overflow-hidden rounded-3xl border ring-1 ring-inset ring-[var(--border)] p-8 md:p-12 text-center md:text-left mask-gradient-b-40"
+        style={{ background: "linear-gradient(135deg, var(--panel-gradient-start) 0%, var(--panel-gradient-end) 100%)" }}
+      >
         {/* grid pattern */}
         <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 opacity-[0.15] [background-image:linear-gradient(to_right,rgba(246,250,253,.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(246,250,253,.08)_1px,transparent_1px)] [background-size:24px_24px]" />
-        <div aria-hidden className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle_at_center,#B3CFE5_0%,transparent_60%)] opacity-20" />
-        <div aria-hidden className="pointer-events-none absolute -left-28 -bottom-28 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle_at_center,#4A7FA7_0%,transparent_60%)] opacity-10" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] rounded-full opacity-20"
+          style={{ background: "radial-gradient(circle at center, var(--glow-primary) 0%, transparent 60%)" }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-28 -bottom-28 h-[360px] w-[360px] rounded-full opacity-10"
+          style={{ background: "radial-gradient(circle at center, var(--glow-secondary) 0%, transparent 60%)" }}
+        />
 
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <div className="flex flex-wrap items-center gap-2 justify-center md:justify-start">
@@ -26,12 +38,14 @@ export default function Home() {
         </motion.div>
 
         <motion.h1
-          className="mt-4 text-4xl md:text-6xl font-semibold tracking-tight leading-tight"
+          className="mt-4 fluid-heading font-semibold tracking-tight"
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
         >
-          Michael Jones — <span className="text-gradient-accent">Developer</span>
+          <Balancer>
+            Michael Jones — <span className="text-gradient-accent">Developer</span>
+          </Balancer>
         </motion.h1>
         <motion.p
           className="mt-4 text-muted-foreground max-w-2xl mx-auto md:mx-0"
@@ -39,7 +53,9 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
         >
-          I craft clean, accessible interfaces and production‑grade web apps. Strong foundation in React/Next, with an eye for detail and performance.
+          <Balancer>
+            I craft clean, accessible interfaces and production‑grade web apps. Strong foundation in React/Next, with an eye for detail and performance.
+          </Balancer>
         </motion.p>
         <motion.div
           className="mt-7 flex flex-col sm:flex-row gap-3 justify-center md:justify-start"
@@ -47,7 +63,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
         >
-          <Button asChild className="shadow-[0_8px_24px_-8px_#4A7FA7]">
+          <Button asChild className="shadow-[0_8px_24px_-8px_var(--shadow-primary)]">
             <Link href="/projects" className="group">
               View Projects
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -78,7 +94,7 @@ export default function Home() {
             "shadcn/ui",
             "Supabase",
           ].map((t) => (
-            <Badge key={t} variant="secondary" className="bg-card/80 border border-white/10 text-foreground/90">
+            <Badge key={t} variant="secondary" className="bg-card/80 border border-[color:var(--border)] text-foreground/90">
               {t}
             </Badge>
           ))}
@@ -91,21 +107,21 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
         >
-          <div className="rounded-xl border bg-background/40 px-4 py-3 flex items-center gap-3 ring-1 ring-inset ring-white/5">
+          <div className="rounded-xl border bg-background/40 px-4 py-3 flex items-center gap-3 ring-1 ring-inset ring-[var(--border)]">
             <Code2 className="h-5 w-5 text-primary" />
             <div className="text-left">
               <p className="text-sm font-medium">Production Projects</p>
               <p className="text-xs text-muted-foreground">3+ featured builds</p>
             </div>
           </div>
-          <div className="rounded-xl border bg-background/40 px-4 py-3 flex items-center gap-3 ring-1 ring-inset ring-white/5">
+          <div className="rounded-xl border bg-background/40 px-4 py-3 flex items-center gap-3 ring-1 ring-inset ring-[var(--border)]">
             <Activity className="h-5 w-5 text-primary" />
             <div className="text-left">
               <p className="text-sm font-medium">Performance Targets</p>
               <p className="text-xs text-muted-foreground">Lighthouse ≥ 90 / 95 / 95 / 95</p>
             </div>
           </div>
-          <div className="rounded-xl border bg-background/40 px-4 py-3 flex items-center gap-3 ring-1 ring-inset ring-white/5">
+          <div className="rounded-xl border bg-background/40 px-4 py-3 flex items-center gap-3 ring-1 ring-inset ring-[var(--border)]">
             <MapPin className="h-5 w-5 text-primary" />
             <div className="text-left">
               <p className="text-sm font-medium">Based in Fayetteville, AR</p>
@@ -126,7 +142,10 @@ export default function Home() {
 
       {/* CTA Section */}
       <section>
-        <div className="relative overflow-hidden rounded-2xl border ring-1 ring-inset ring-white/5 p-8 bg-[linear-gradient(135deg,rgba(74,127,167,.25)_0%,rgba(26,61,99,.25)_100%)]">
+        <div
+          className="relative overflow-hidden rounded-2xl border ring-1 ring-inset ring-[var(--border)] p-8"
+          style={{ background: "linear-gradient(135deg, var(--cta-gradient-start) 0%, var(--cta-gradient-end) 100%)" }}
+        >
           <div className="max-w-2xl">
             <h3 className="text-2xl font-semibold tracking-tight">Let’s build something exceptional</h3>
             <p className="mt-2 text-muted-foreground">Have a project in mind or want feedback on an idea? I’m open to roles and collaborations in Northwest Arkansas and remote.</p>
@@ -139,7 +158,11 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="pointer-events-none absolute -right-16 -bottom-16 h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,#B3CFE5_0%,transparent_60%)] opacity-20" />
+          <div
+            className="pointer-events-none absolute -right-16 -bottom-16 h-72 w-72 rounded-full opacity-20"
+            aria-hidden
+            style={{ background: "radial-gradient(circle at center, var(--glow-primary) 0%, transparent 60%)" }}
+          />
         </div>
       </section>
     </div>

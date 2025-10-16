@@ -6,10 +6,13 @@ import Image from "next/image";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <Card className="group relative overflow-hidden border-white/10 bg-card/80 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-[linear-gradient(#4A7FA7,#B3CFE5)] before:opacity-0 group-hover:before:opacity-100">
+    <Card className="group relative overflow-hidden border-[color:var(--border)] bg-card/80 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-[linear-gradient(var(--secondary),var(--accent))] before:opacity-0 group-hover:before:opacity-100">
       {/* Media */}
       <div className="px-6">
-        <div className="relative overflow-hidden rounded-xl aspect-[16/9] bg-gradient-to-br from-[rgba(74,127,167,.25)] to-[rgba(26,61,99,.25)]">
+        <div
+          className="relative overflow-hidden rounded-xl aspect-[16/9]"
+          style={{ background: "linear-gradient(135deg, var(--panel-gradient-start) 0%, var(--panel-gradient-end) 100%)" }}
+        >
           {project.image ? (
             <Image
               src={project.image}
@@ -30,7 +33,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       <CardContent>
         <div className="flex flex-wrap gap-2">
           {project.stack.map((s) => (
-            <Badge key={s} variant="secondary" className="bg-secondary/20 text-secondary-foreground border border-white/10">
+            <Badge key={s} variant="secondary" className="bg-secondary/20 text-secondary-foreground border border-[color:var(--border)]">
               {s}
             </Badge>
           ))}
@@ -47,11 +50,9 @@ export default function ProjectCard({ project }: { project: Project }) {
             GitHub
           </Link>
         )}
-        {project.links.caseStudy && (
-          <Link className="text-sm underline" href={project.links.caseStudy}>
-            Case Study
-          </Link>
-        )}
+        <Link className="text-sm underline" href={`/projects/${project.slug}`}>
+          Details
+        </Link>
       </CardFooter>
     </Card>
   );

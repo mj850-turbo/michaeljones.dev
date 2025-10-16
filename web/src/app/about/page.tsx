@@ -12,8 +12,15 @@ export default function AboutPage() {
   return (
     <div className="space-y-8">
       {/* Intro tile */}
-      <section className="relative overflow-hidden rounded-2xl border bg-muted/40 p-6 ring-1 ring-inset ring-white/5">
-        <div aria-hidden className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,#B3CFE5_0%,transparent_60%)] opacity-15" />
+      <section
+        className="relative overflow-hidden rounded-2xl border p-6 ring-1 ring-inset ring-[var(--border)]"
+        style={{ background: "linear-gradient(135deg, var(--panel-gradient-start) 0%, var(--panel-gradient-end) 100%)" }}
+      >
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full opacity-15"
+          style={{ background: "radial-gradient(circle at center, var(--glow-primary) 0%, transparent 60%)" }}
+        />
         <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">About</h1>
         <p className="mt-3 text-muted-foreground max-w-2xl">
           I’m a frontend‑leaning full‑stack developer focused on building fast, accessible
@@ -21,13 +28,13 @@ export default function AboutPage() {
           systems, thoughtful motion, and great developer experience.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          <Badge variant="secondary" className="bg-card/80 border border-white/10">
+          <Badge variant="secondary" className="bg-card/80 border border-[color:var(--border)]">
             <MapPin className="mr-1 h-3.5 w-3.5" /> Fayetteville, AR
           </Badge>
-          <Badge variant="secondary" className="bg-card/80 border border-white/10">
+          <Badge variant="secondary" className="bg-card/80 border border-[color:var(--border)]">
             <Code2 className="mr-1 h-3.5 w-3.5" /> React · Next.js · TS
           </Badge>
-          <Badge variant="secondary" className="bg-card/80 border border-white/10">
+          <Badge variant="secondary" className="bg-card/80 border border-[color:var(--border)]">
             <Sparkles className="mr-1 h-3.5 w-3.5" /> UI/UX & Accessibility
           </Badge>
         </div>
@@ -42,17 +49,17 @@ export default function AboutPage() {
 
       {/* Quick facts grid */}
       <section className="grid gap-4 md:grid-cols-3">
-        <div className="rounded-2xl border bg-background/40 p-5 ring-1 ring-inset ring-white/5">
+        <div className="rounded-2xl border bg-background/40 p-5 ring-1 ring-inset ring-[var(--border)]">
           <div className="text-sm text-muted-foreground">Focus</div>
           <div className="mt-1 font-medium">Frontend‑first Full‑stack</div>
           <p className="mt-2 text-sm text-muted-foreground">React/Next.js, shadcn/ui, Tailwind, TypeScript. Server Components and clean data loading.</p>
         </div>
-        <div className="rounded-2xl border bg-background/40 p-5 ring-1 ring-inset ring-white/5">
+        <div className="rounded-2xl border bg-background/40 p-5 ring-1 ring-inset ring-[var(--border)]">
           <div className="text-sm text-muted-foreground">Tooling</div>
           <div className="mt-1 font-medium">Modern & pragmatic</div>
           <p className="mt-2 text-sm text-muted-foreground">Supabase, Vercel, ESLint/Prettier, GitHub Actions, Framer Motion (light), Plausible.</p>
         </div>
-        <div className="rounded-2xl border bg-background/40 p-5 ring-1 ring-inset ring-white/5">
+        <div className="rounded-2xl border bg-background/40 p-5 ring-1 ring-inset ring-[var(--border)]">
           <div className="text-sm text-muted-foreground">Education</div>
           <div className="mt-1 font-medium flex items-center gap-2"><GraduationCap className="h-4 w-4 text-primary" /> University of Arkansas</div>
           <p className="mt-2 text-sm text-muted-foreground">B.S. in Computer Science — hands‑on with web apps, UI/UX, and applied AI workflows.</p>
@@ -61,15 +68,15 @@ export default function AboutPage() {
 
       {/* Skills tiles */}
       <section className="grid gap-4 md:grid-cols-2">
-        <div className="rounded-2xl border bg-muted/40 p-5 ring-1 ring-inset ring-white/5">
+        <div className="rounded-2xl border bg-muted/40 p-5 ring-1 ring-inset ring-[var(--border)]">
           <h2 className="font-semibold">Core Stack</h2>
           <div className="mt-3 flex flex-wrap gap-2">
             {["React", "Next.js", "TypeScript", "Tailwind", "shadcn/ui", "Supabase"].map((s) => (
-              <Badge key={s} variant="secondary" className="bg-card/80 border border-white/10">{s}</Badge>
+              <Badge key={s} variant="secondary" className="bg-card/80 border border-[color:var(--border)]">{s}</Badge>
             ))}
           </div>
         </div>
-        <div className="rounded-2xl border bg-muted/40 p-5 ring-1 ring-inset ring-white/5">
+        <div className="rounded-2xl border bg-muted/40 p-5 ring-1 ring-inset ring-[var(--border)]">
           <h2 className="font-semibold">Principles</h2>
           <ul className="mt-3 grid gap-2 text-sm text-muted-foreground">
             <li>• Accessibility and performance by default</li>
@@ -82,7 +89,10 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section>
-        <div className="relative overflow-hidden rounded-2xl border ring-1 ring-inset ring-white/5 p-6 bg-[linear-gradient(135deg,rgba(74,127,167,.2)_0%,rgba(26,61,99,.2)_100%)]">
+        <div
+          className="relative overflow-hidden rounded-2xl border ring-1 ring-inset ring-[var(--border)] p-6"
+          style={{ background: "linear-gradient(135deg, var(--cta-gradient-start) 0%, var(--cta-gradient-end) 100%)" }}
+        >
           <div className="max-w-2xl">
             <h3 className="text-xl font-semibold tracking-tight">Let’s connect</h3>
             <p className="mt-1 text-sm text-muted-foreground">Open to roles and collaborations in Northwest Arkansas and remote. Happy to chat about ideas or code.</p>
@@ -95,7 +105,11 @@ export default function AboutPage() {
               </Button>
             </div>
           </div>
-          <div className="pointer-events-none absolute -right-16 -bottom-16 h-56 w-56 rounded-full bg-[radial-gradient(circle_at_center,#B3CFE5_0%,transparent_60%)] opacity-20" />
+          <div
+            className="pointer-events-none absolute -right-16 -bottom-16 h-56 w-56 rounded-full opacity-20"
+            aria-hidden
+            style={{ background: "radial-gradient(circle at center, var(--glow-primary) 0%, transparent 60%)" }}
+          />
         </div>
       </section>
     </div>

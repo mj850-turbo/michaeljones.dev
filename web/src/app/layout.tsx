@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "Michael Jones — Portfolio",
@@ -15,25 +16,39 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`antialiased min-h-dvh flex flex-col bg-background text-foreground relative`}>        
-        {/* Background layers: gradient + subtle noise */}
-        <div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 -z-10 [background:linear-gradient(to_bottom,#0A1931,rgba(10,25,49,0.98))]"
+    <html lang="en" className="dark" suppressHydrationWarning data-mode="dark" data-theme="palette-1">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(()=>{try{const root=document.documentElement;const storedMode=localStorage.getItem("mj-theme-mode");const storedPalette=localStorage.getItem("mj-theme-palette");const mode=storedMode==="light"?"light":"dark";root.dataset.mode=mode;root.classList.toggle("dark",mode==="dark");if(storedPalette){root.dataset.theme=storedPalette;}}catch(e){}})();`,
+          }}
         />
-        <div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(1000px_600px_at_10%_-10%,#4A7FA7a6_0%,transparent_60%),radial-gradient(800px_400px_at_90%_-10%,#B3CFE566_0%,transparent_55%)]"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 -z-10 opacity-[0.06] mix-blend-overlay bg-[url('/noise.svg')]"
-        />
+      </head>
+      <body className={`antialiased min-h-dvh flex flex-col bg-background text-foreground relative`}>
+        <ThemeProvider>
+          {/* Background layers: gradient + subtle noise */}
+          <div
+            aria-hidden
+            className="pointer-events-none fixed inset-0 -z-10"
+            style={{ background: "linear-gradient(to bottom, var(--gradient-top), var(--gradient-bottom))" }}
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none fixed inset-0 -z-10"
+            style={{
+              background:
+                "radial-gradient(1000px 600px at 10% -10%, var(--gradient-radial-1) 0%, transparent 60%), radial-gradient(800px 400px at 90% -10%, var(--gradient-radial-2) 0%, transparent 55%)",
+            }}
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none fixed inset-0 -z-10 opacity-[0.06] mix-blend-overlay bg-[url('/noise.svg')]"
+          />
 
-        <Nav />
-        <main className="flex-1 container mx-auto px-4 py-10 sm:py-12">{children}</main>
-        <Footer />
+          <Nav />
+          <main className="flex-1 container mx-auto px-4 py-10 sm:py-12">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

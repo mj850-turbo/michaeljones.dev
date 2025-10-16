@@ -6,6 +6,7 @@ import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/compon
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import ThemeControls from "@/components/theme-controls";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -47,6 +48,7 @@ export default function Nav() {
           <Link aria-label="Email" href="mailto:jonesmf58@gmail.com">
             <Mail className="h-5 w-5 hover:text-foreground transition-colors" />
           </Link>
+          <ThemeControls />
         </div>
 
         <div className="md:hidden">
@@ -71,6 +73,9 @@ export default function Nav() {
                   <Link aria-label="Email" href="mailto:jonesmf58@gmail.com">
                     <Mail className="h-5 w-5" />
                   </Link>
+                </div>
+                <div className="pt-2">
+                  <ThemeControls withLabels />
                 </div>
               </div>
             </SheetContent>

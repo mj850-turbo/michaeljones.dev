@@ -25,19 +25,22 @@ export default function ContactPage() {
   return (
     <div className="grid gap-6 md:grid-cols-5">
       {/* Left: intro / social */}
-      <section className="md:col-span-2 rounded-2xl border bg-muted/40 p-6 ring-1 ring-inset ring-white/5">
+      <section
+        className="md:col-span-2 rounded-2xl border p-6 ring-1 ring-inset ring-[var(--border)]"
+        style={{ background: "linear-gradient(135deg, var(--panel-gradient-start) 0%, var(--panel-gradient-end) 100%)" }}
+      >
         <h1 className="text-2xl font-semibold tracking-tight">Let’s connect</h1>
         <p className="mt-2 text-sm text-muted-foreground">I respond within 1–2 business days. Prefer email? Use the direct link below.</p>
         <div className="mt-4 grid grid-cols-3 gap-2">
-          <Link href="mailto:jonesmf58@gmail.com" className="flex items-center gap-2 rounded-lg border bg-background/40 px-3 py-2 ring-1 ring-inset ring-white/5 hover:bg-accent transition-colors">
+          <Link href="mailto:jonesmf58@gmail.com" className="flex items-center gap-2 rounded-lg border bg-background/40 px-3 py-2 ring-1 ring-inset ring-[var(--border)] hover:bg-accent transition-colors">
             <Mail className="h-4 w-4 text-primary" />
             <span className="text-sm">Email</span>
           </Link>
-          <Link href="https://github.com/michaelfjones" target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-lg border bg-background/40 px-3 py-2 ring-1 ring-inset ring-white/5 hover:bg-accent transition-colors">
+          <Link href="https://github.com/michaelfjones" target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-lg border bg-background/40 px-3 py-2 ring-1 ring-inset ring-[var(--border)] hover:bg-accent transition-colors">
             <Github className="h-4 w-4 text-primary" />
             <span className="text-sm">GitHub</span>
           </Link>
-          <Link href="https://linkedin.com/in/michael-jones" target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-lg border bg-background/40 px-3 py-2 ring-1 ring-inset ring-white/5 hover:bg-accent transition-colors">
+          <Link href="https://linkedin.com/in/michael-jones" target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-lg border bg-background/40 px-3 py-2 ring-1 ring-inset ring-[var(--border)] hover:bg-accent transition-colors">
             <Linkedin className="h-4 w-4 text-primary" />
             <span className="text-sm">LinkedIn</span>
           </Link>
@@ -46,7 +49,7 @@ export default function ContactPage() {
       </section>
 
       {/* Right: form */}
-      <section className="md:col-span-3 rounded-2xl border bg-background/40 p-6 ring-1 ring-inset ring-white/5">
+      <section className="md:col-span-3 rounded-2xl border bg-background/40 p-6 ring-1 ring-inset ring-[var(--border)]">
         <h2 className="font-semibold mb-4">Send a message</h2>
         <form onSubmit={onSubmit} className="grid gap-4">
           <div className="grid gap-1">

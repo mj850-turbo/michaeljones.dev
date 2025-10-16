@@ -29,8 +29,9 @@
 
 ## Task Checklist
 
-- [ ] Install and configure foundational libraries (Lenis, gradient mask plugin, fluid type, wrap balancer).  
-- [ ] Update global styles / layout to use new utilities and ensure regression-free baseline.  
+- [x] Install and configure foundational libraries (Lenis, gradient mask utility, fluid type helper class, wrap balancer).  
+- [x] Update global styles / layout to use new utilities and ensure regression-free baseline.  
+- [x] Build theme system with shared tokens, palette presets, and UI controls (light/dark toggle + palette switcher).  
 - [ ] Prototype hero upgrades (3D background or parallax) and lock selected approach.  
 - [ ] Implement interactive project/service sections using chosen component patterns.  
 - [ ] Add testimonial/metrics modules with animated counters.  
@@ -43,5 +44,7 @@
 - Maintain existing stack alignment (Next.js + Tailwind + shadcn/ui + Framer Motion); new libraries complement rather than replace.  
 - Prefer minimal bundle impact—defer heavier 3D assets behind dynamic imports or feature toggles.  
 - Keep accessibility checks running; revisit focus states after motion/animation additions.  
+- Adopt the journey outlined in the ASCII wireframes: hero → proof strip → featured case study → services → process → testimonials/metrics → secondary work → explorations → contact. Use this as the target structure while upgrading components.  
+- Default palette is `palette-1`; all new styling should reference CSS custom properties (`--primary`, `--panel-gradient-start`, etc.) rather than hard-coded color values to keep theme profiles consistent.  
+- Smooth scrolling will stay off for now (Lenis removed on request); revisit once we have the rest of the experience dialed in.  
 - Revisit this file after each milestone to mark progress and capture iterations.
-
