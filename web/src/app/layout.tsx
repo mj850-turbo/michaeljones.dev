@@ -20,11 +20,11 @@ export default function RootLayout({
         {/* Background layers: gradient + subtle noise */}
         <div
           aria-hidden
-          className="pointer-events-none fixed inset-0 -z-10 [background:linear-gradient(to_bottom,#0F2D4D,rgba(15,45,77,0.98))]"
+          className="pointer-events-none fixed inset-0 -z-10 [background:linear-gradient(to_bottom,#0A1931,rgba(10,25,49,0.98))]"
         />
         <div
           aria-hidden
-          className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(1000px_600px_at_10%_-10%,#A77693a6_0%,transparent_60%),radial-gradient(800px_400px_at_90%_-10%,#17487166_0%,transparent_55%)]"
+          className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(1000px_600px_at_10%_-10%,#4A7FA7a6_0%,transparent_60%),radial-gradient(800px_400px_at_90%_-10%,#B3CFE566_0%,transparent_55%)]"
         />
         <div
           aria-hidden

@@ -80,38 +80,38 @@
 }
 
 .dark {
-  /* Dark-first palette using your gradients */
-  --background: #0F2D4D;          /* deep blue */
-  --foreground: #F2F3F4;          /* soft white */
-  --card: #122f51;                /* slightly lighter than bg */
-  --card-foreground: #F2F3F4;
-  --popover: #122f51;
-  --popover-foreground: #F2F3F4;
-  --primary: #A77693;             /* mauve accent */
-  --primary-foreground: #0F2D4D;  /* readable on mauve */
-  --secondary: #174871;           /* blue secondary */
-  --secondary-foreground: #F2F3F4;
-  --muted: #163a5e;               /* muted tiles */
-  --muted-foreground: #c6ced7;
-  --accent: rgba(255,255,255,0.06); /* subtle hover surface */
-  --accent-foreground: #F2F3F4;
+  /* Dark-first palette (new blues) */
+  --background: #0A1931;          /* primary canvas */
+  --foreground: #F6FAFD;          /* soft white */
+  --card: #1A3D63;                /* tile surface */
+  --card-foreground: #F6FAFD;
+  --popover: #1A3D63;
+  --popover-foreground: #F6FAFD;
+  --primary: #4A7FA7;             /* CTA accent */
+  --primary-foreground: #F6FAFD;  /* text on accent */
+  --secondary: #0A1931;           /* deep */
+  --secondary-foreground: #F6FAFD;
+  --muted: #10223f;               /* subtle panels */
+  --muted-foreground: #B3CFE5;
+  --accent: rgba(179,207,229,0.10); /* hover surface */
+  --accent-foreground: #F6FAFD;
   --destructive: #ef4444;
-  --border: rgba(242,243,244,0.10);
-  --input: rgba(242,243,244,0.15);
-  --ring: #A77693;
-  --chart-1: #A77693;
-  --chart-2: #174871;
-  --chart-3: #0F2D4D;
-  --chart-4: #DED1C6;
-  --chart-5: #93a4bf;
-  --sidebar: #122f51;
-  --sidebar-foreground: #F2F3F4;
-  --sidebar-primary: #A77693;
-  --sidebar-primary-foreground: #0F2D4D;
-  --sidebar-accent: rgba(255,255,255,0.06);
-  --sidebar-accent-foreground: #F2F3F4;
-  --sidebar-border: rgba(242,243,244,0.10);
-  --sidebar-ring: #A77693;
+  --border: rgba(246,250,253,0.10);
+  --input: rgba(246,250,253,0.15);
+  --ring: #4A7FA7;
+  --chart-1: #4A7FA7;
+  --chart-2: #B3CFE5;
+  --chart-3: #1A3D63;
+  --chart-4: #0A1931;
+  --chart-5: #F6FAFD;
+  --sidebar: #10223f;
+  --sidebar-foreground: #F6FAFD;
+  --sidebar-primary: #4A7FA7;
+  --sidebar-primary-foreground: #F6FAFD;
+  --sidebar-accent: rgba(179,207,229,0.10);
+  --sidebar-accent-foreground: #F6FAFD;
+  --sidebar-border: rgba(246,250,253,0.10);
+  --sidebar-ring: #4A7FA7;
 }
 
 @layer base {
@@ -125,7 +125,7 @@
 
 @layer utilities {
   .text-gradient-accent {
-    background-image: linear-gradient(90deg, #DED1C6 0%, #A77693 45%, #174871 100%);
+    background-image: linear-gradient(90deg, #B3CFE5 0%, #4A7FA7 45%, #1A3D63 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
