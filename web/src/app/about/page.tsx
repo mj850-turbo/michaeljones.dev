@@ -87,6 +87,45 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section
+        id="resume"
+        className="relative overflow-hidden rounded-2xl border ring-1 ring-inset ring-[var(--border)] p-6"
+        style={{ background: "linear-gradient(135deg, var(--panel-gradient-start) 0%, var(--panel-gradient-end) 100%)" }}
+      >
+        <div className="max-w-2xl">
+          <h2 className="text-xl font-semibold tracking-tight">Resume</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            View my latest experience snapshot below or download the PDF for a closer look.
+          </p>
+        </div>
+        <div className="mt-4 overflow-hidden rounded-xl border bg-background/70">
+          <object
+            data="/resume.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=0"
+            type="application/pdf"
+            className="h-[32rem] w-full"
+          >
+            <div className="flex flex-col items-start gap-2 p-6 text-sm text-muted-foreground">
+              <p>Inline preview isn&apos;t available in this browser.</p>
+              <a href="/resume.pdf" className="underline" target="_blank" rel="noreferrer">
+                Download resume.pdf
+              </a>
+            </div>
+          </object>
+        </div>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <Button asChild>
+            <a href="/resume.pdf" download>
+              Download PDF
+            </a>
+          </Button>
+          <Button asChild variant="outline">
+            <a href="/resume.pdf" target="_blank" rel="noreferrer">
+              Open in new tab
+            </a>
+          </Button>
+        </div>
+      </section>
+
       {/* CTA */}
       <section>
         <div
