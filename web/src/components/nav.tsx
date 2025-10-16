@@ -17,7 +17,7 @@ export default function Nav() {
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur">
+    <header className="sticky top-0 z-40 w-full border-b bg-background/60 supports-[backdrop-filter]:bg-background/45 backdrop-blur-md">
       <div className="container mx-auto flex h-14 items-center justify-between px-4">
         <Link href="/" className="font-semibold tracking-tight">
           michaeljones.dev
@@ -28,7 +28,7 @@ export default function Nav() {
             <NavigationMenuList>
               {links.map((l) => (
                 <NavigationMenuItem key={l.href}>
-                  <Link href={l.href} className="px-3 py-2 text-sm hover:underline">
+                  <Link href={l.href} className="px-3 py-2 text-sm text-foreground/80 hover:text-foreground transition-colors">
                     {l.label}
                   </Link>
                 </NavigationMenuItem>
@@ -37,15 +37,15 @@ export default function Nav() {
           </NavigationMenu>
         </nav>
 
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden md:flex items-center gap-3 text-foreground/80">
           <Link aria-label="GitHub" href="https://github.com/michaelfjones" target="_blank" rel="noreferrer">
-            <Github className="h-5 w-5" />
+            <Github className="h-5 w-5 hover:text-foreground transition-colors" />
           </Link>
           <Link aria-label="LinkedIn" href="https://linkedin.com/in/michael-jones" target="_blank" rel="noreferrer">
-            <Linkedin className="h-5 w-5" />
+            <Linkedin className="h-5 w-5 hover:text-foreground transition-colors" />
           </Link>
           <Link aria-label="Email" href="mailto:jonesmf58@gmail.com">
-            <Mail className="h-5 w-5" />
+            <Mail className="h-5 w-5 hover:text-foreground transition-colors" />
           </Link>
         </div>
 
@@ -80,4 +80,3 @@ export default function Nav() {
     </header>
   );
 }
-
