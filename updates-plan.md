@@ -45,6 +45,6 @@
 - Prefer minimal bundle impact—defer heavier 3D assets behind dynamic imports or feature toggles.  
 - Keep accessibility checks running; revisit focus states after motion/animation additions.  
 - Adopt the journey outlined in the ASCII wireframes: hero → proof strip → featured case study → services → process → testimonials/metrics → secondary work → explorations → contact. Use this as the target structure while upgrading components.  
-- Default palette is `palette-1`; all new styling should reference CSS custom properties (`--primary`, `--panel-gradient-start`, etc.) rather than hard-coded color values to keep theme profiles consistent.  
+- Default palette uses Canyon Dawn (light) and Velvet Twilight (dark) under the `palette-default` profile; all new styling should reference CSS custom properties (`--primary`, `--panel-gradient-start`, etc.) rather than hard-coded color values so theme swaps stay consistent.  
 - Smooth scrolling will stay off for now (Lenis removed on request); revisit once we have the rest of the experience dialed in.  
 - Revisit this file after each milestone to mark progress and capture iterations.

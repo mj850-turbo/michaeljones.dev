@@ -3,7 +3,13 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 export type ThemeMode = "light" | "dark";
-export type ThemeProfile = "palette-1" | "palette-2" | "palette-3" | "palette-4" | "palette-5";
+export type ThemeProfile =
+  | "palette-default"
+  | "palette-1"
+  | "palette-2"
+  | "palette-3"
+  | "palette-4"
+  | "palette-5";
 
 type ThemeContextValue = {
   mode: ThemeMode;
@@ -19,7 +25,7 @@ const MODE_STORAGE_KEY = "mj-theme-mode";
 const PALETTE_STORAGE_KEY = "mj-theme-palette";
 
 const DEFAULT_MODE: ThemeMode = "dark";
-const DEFAULT_PALETTE: ThemeProfile = "palette-1";
+const DEFAULT_PALETTE: ThemeProfile = "palette-default";
 
 function loadStoredMode(): ThemeMode {
   if (typeof window === "undefined") return DEFAULT_MODE;
@@ -27,12 +33,19 @@ function loadStoredMode(): ThemeMode {
   return stored === "light" || stored === "dark" ? stored : DEFAULT_MODE;
 }
 
+const paletteWhitelist: ThemeProfile[] = [
+  "palette-default",
+  "palette-1",
+  "palette-2",
+  "palette-3",
+  "palette-4",
+  "palette-5",
+];
+
 function loadStoredPalette(): ThemeProfile {
   if (typeof window === "undefined") return DEFAULT_PALETTE;
   const stored = window.localStorage.getItem(PALETTE_STORAGE_KEY) as ThemeProfile | null;
-  return stored && ["palette-1", "palette-2", "palette-3", "palette-4", "palette-5"].includes(stored)
-    ? stored
-    : DEFAULT_PALETTE;
+  return stored && paletteWhitelist.includes(stored) ? stored : DEFAULT_PALETTE;
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
@@ -73,4 +86,3 @@ export function useTheme() {
   }
   return ctx;
 }
-

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Moon, Sun, Palette } from "lucide-react";
 
 const paletteOptions: { id: ThemeProfile; label: string; swatch: string[] }[] = [
+  { id: "palette-default", label: "Default Blend", swatch: ["#8A83DA", "#FBD5BD", "#2B124C"] },
   { id: "palette-1", label: "Midnight Mauve", swatch: ["#174871", "#A77693", "#DED1C6"] },
   { id: "palette-2", label: "Neon Tides", swatch: ["#09CDCD", "#573894", "#002D72"] },
   { id: "palette-3", label: "Canyon Dawn", swatch: ["#8A83DA", "#FBD5BD", "#463699"] },
