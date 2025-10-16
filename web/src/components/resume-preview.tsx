@@ -42,14 +42,15 @@ export default function ResumePreview() {
       </div>
 
       <div
-        className={`transition-[max-height] duration-500 ease-out ${open ? "max-h-[1200px] mt-4" : "max-h-0"}`}
+        className={`transition-[max-height] duration-500 ease-out ${open ? "max-h-[2600px] mt-4" : "max-h-0"}`}
       >
-        <div className={`overflow-hidden rounded-xl border bg-background/70 ${open ? "opacity-100" : "opacity-0"} transition-opacity duration-500`}
+        <div
+          className={`overflow-hidden rounded-xl border bg-background/70 ${open ? "opacity-100" : "opacity-0"} transition-opacity duration-500`}
         >
           <object
             data="/resume.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=0"
             type="application/pdf"
-            className="h-[32rem] w-full"
+            className="min-h-[50rem] w-full"
           >
             <div className="flex flex-col items-start gap-2 p-6 text-sm text-muted-foreground">
               <p>Inline preview isn&apos;t available in this browser.</p>
@@ -76,4 +77,3 @@ export default function ResumePreview() {
     </section>
   );
 }
-
