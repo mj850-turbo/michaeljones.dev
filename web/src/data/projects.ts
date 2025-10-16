@@ -11,7 +11,6 @@ export const projects: Project[] = [
       live: "#",
       repo: "#",
     },
-    image: "/images/kats-interiors.png",
     featured: true,
   },
   {
@@ -24,7 +23,6 @@ export const projects: Project[] = [
       live: "#",
       repo: "#",
     },
-    image: "/images/personal-dashboard.png",
     featured: true,
   },
   {
@@ -37,8 +35,6 @@ export const projects: Project[] = [
       live: "https://michaeljones.dev",
       repo: "https://github.com/michaelfjones/michaeljones.dev",
     },
-    image: "/images/portfolio.png",
     featured: true,
   },
 ];
-
