@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, ArrowRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { ExternalLink, ArrowRight, Code2, Activity, MapPin } from "lucide-react";
 import { projects } from "@/data/projects";
 import ProjectCard from "@/components/project-card";
 import { motion } from "framer-motion";
@@ -10,23 +11,35 @@ import { motion } from "framer-motion";
 export default function Home() {
   return (
     <div className="space-y-14">
-      <section className="text-center md:text-left">
+      <section className="relative overflow-hidden rounded-3xl border ring-1 ring-inset ring-white/5 p-8 md:p-12 text-center md:text-left bg-[linear-gradient(135deg,rgba(74,127,167,.18)_0%,rgba(26,61,99,.18)_100%)]">
+        {/* grid pattern */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 opacity-[0.15] [background-image:linear-gradient(to_right,rgba(246,250,253,.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(246,250,253,.08)_1px,transparent_1px)] [background-size:24px_24px]" />
+        <div aria-hidden className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle_at_center,#B3CFE5_0%,transparent_60%)] opacity-20" />
+        <div aria-hidden className="pointer-events-none absolute -left-28 -bottom-28 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle_at_center,#4A7FA7_0%,transparent_60%)] opacity-10" />
+
+        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+          <div className="flex flex-wrap items-center gap-2 justify-center md:justify-start">
+            <Badge variant="secondary" className="bg-accent/40 text-foreground">Frontend‑focused</Badge>
+            <Badge variant="secondary" className="bg-accent/40 text-foreground">Full‑stack</Badge>
+            <Badge variant="secondary" className="bg-accent/40 text-foreground">Next.js · TypeScript · Supabase</Badge>
+          </div>
+        </motion.div>
+
         <motion.h1
-          className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight"
+          className="mt-4 text-4xl md:text-6xl font-semibold tracking-tight leading-tight"
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 }}
         >
           Michael Jones — <span className="text-gradient-accent">Developer</span>
         </motion.h1>
         <motion.p
-          className="mt-4 text-muted-foreground max-w-2xl"
+          className="mt-4 text-muted-foreground max-w-2xl mx-auto md:mx-0"
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
         >
-          Frontend‑leaning full‑stack developer in Fayetteville, AR. I build
-          production‑grade web apps with Next.js, TypeScript, and Supabase.
+          I craft clean, accessible interfaces and production‑grade web apps. Strong foundation in React/Next, with an eye for detail and performance.
         </motion.p>
         <motion.div
           className="mt-7 flex flex-col sm:flex-row gap-3 justify-center md:justify-start"
@@ -49,6 +62,57 @@ export default function Home() {
             </Link>
           </Button>
         </motion.div>
+
+        {/* Tech strip */}
+        <motion.div
+          className="mt-8 flex flex-wrap items-center justify-center md:justify-start gap-2"
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
+        >
+          {[
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Tailwind",
+            "shadcn/ui",
+            "Supabase",
+          ].map((t) => (
+            <Badge key={t} variant="secondary" className="bg-card/80 border border-white/10 text-foreground/90">
+              {t}
+            </Badge>
+          ))}
+        </motion.div>
+
+        {/* Stats */}
+        <motion.div
+          className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3"
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+        >
+          <div className="rounded-xl border bg-background/40 px-4 py-3 flex items-center gap-3 ring-1 ring-inset ring-white/5">
+            <Code2 className="h-5 w-5 text-primary" />
+            <div className="text-left">
+              <p className="text-sm font-medium">Production Projects</p>
+              <p className="text-xs text-muted-foreground">3+ featured builds</p>
+            </div>
+          </div>
+          <div className="rounded-xl border bg-background/40 px-4 py-3 flex items-center gap-3 ring-1 ring-inset ring-white/5">
+            <Activity className="h-5 w-5 text-primary" />
+            <div className="text-left">
+              <p className="text-sm font-medium">Performance Targets</p>
+              <p className="text-xs text-muted-foreground">Lighthouse ≥ 90 / 95 / 95 / 95</p>
+            </div>
+          </div>
+          <div className="rounded-xl border bg-background/40 px-4 py-3 flex items-center gap-3 ring-1 ring-inset ring-white/5">
+            <MapPin className="h-5 w-5 text-primary" />
+            <div className="text-left">
+              <p className="text-sm font-medium">Based in Fayetteville, AR</p>
+              <p className="text-xs text-muted-foreground">Open to NWA & remote</p>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       <section>
@@ -57,22 +121,6 @@ export default function Home() {
           {projects.slice(0, 3).map((p) => (
             <ProjectCard key={p.slug} project={p} />
           ))}
-        </div>
-      </section>
-
-      {/* Highlights section */}
-      <section className="grid gap-4 md:grid-cols-3">
-        <div className="rounded-2xl border bg-muted/40 p-5 ring-1 ring-inset ring-white/5">
-          <h3 className="font-semibold mb-1">Frontend & UI</h3>
-          <p className="text-sm text-muted-foreground">Accessible, responsive interfaces with React, Next.js and shadcn/ui. Thoughtful motion and a11y-first details.</p>
-        </div>
-        <div className="rounded-2xl border bg-muted/40 p-5 ring-1 ring-inset ring-white/5">
-          <h3 className="font-semibold mb-1">Full‑stack Apps</h3>
-          <p className="text-sm text-muted-foreground">Auth, storage and APIs with Supabase. Data-driven pages and clean server components.</p>
-        </div>
-        <div className="rounded-2xl border bg-muted/40 p-5 ring-1 ring-inset ring-white/5">
-          <h3 className="font-semibold mb-1">Performance & SEO</h3>
-          <p className="text-sm text-muted-foreground">Fast loads, Lighthouse targets ≥ 90/95/95/95 with solid Core Web Vitals and metadata.</p>
         </div>
       </section>
 
