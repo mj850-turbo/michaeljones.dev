@@ -1,17 +1,49 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp, Download, ExternalLink } from "lucide-react";
 
 export default function ResumePreview() {
   const [open, setOpen] = useState(false);
+  const [maxHeight, setMaxHeight] = useState(0);
+  const contentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.location.hash === "#resume") {
       setOpen(true);
     }
   }, []);
+
+  useEffect(() => {
+    if (!open) {
+      setMaxHeight(0);
+      return;
+    }
+
+    const measure = () => {
+      if (contentRef.current) {
+        setMaxHeight(contentRef.current.scrollHeight + 48);
+      }
+    };
+
+    measure();
+
+    const observer = new ResizeObserver(measure);
+    if (contentRef.current) {
+      observer.observe(contentRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [open]);
+
+  const handleToggle = () => setOpen((prev) => !prev);
+
+  const handleObjectLoad = () => {
+    if (contentRef.current) {
+      setMaxHeight(contentRef.current.scrollHeight + 48);
+    }
+  };
 
   return (
     <section
@@ -29,7 +61,7 @@ export default function ResumePreview() {
         <Button
           variant="ghost"
           size="sm"
-          onClick={() => setOpen((prev) => !prev)}
+          onClick={handleToggle}
           aria-expanded={open}
           className="self-end sm:self-auto"
         >
@@ -42,15 +74,19 @@ export default function ResumePreview() {
       </div>
 
       <div
-        className={`transition-[max-height] duration-500 ease-out ${open ? "max-h-[2600px] mt-4" : "max-h-0"}`}
+        className={`transition-[max-height] duration-500 ease-out ${open ? "mt-4" : "max-h-0"}`}
+        style={{ maxHeight: open ? maxHeight : 0 }}
       >
         <div
+          ref={contentRef}
           className={`overflow-hidden rounded-xl border bg-background/70 ${open ? "opacity-100" : "opacity-0"} transition-opacity duration-500`}
         >
           <object
             data="/resume.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=0"
             type="application/pdf"
-            className="min-h-[50rem] w-full"
+            className="w-full"
+            style={{ minHeight: open ? "1065px" : "0px" }}
+            onLoad={handleObjectLoad}
           >
             <div className="flex flex-col items-start gap-2 p-6 text-sm text-muted-foreground">
               <p>Inline preview isn&apos;t available in this browser.</p>

@@ -250,6 +250,17 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_ROLE_KEY=   # optional for API routes
 ```
 
+**Environment Variables (contact email via Resend):**
+```
+# Required for sending email from /api/contact
+RESEND_API_KEY=         # get from https://resend.com (project API key)
+
+# Optional overrides (defaults below if not set)
+CONTACT_TO_EMAIL=mfjdevelopments@gmail.com
+CONTACT_FROM_EMAIL="Michael F. Jones <onboarding@resend.dev>"
+```
+The contact form at `/contact` submits to `/api/contact` and sends an email via Resend with Reply‑To set to the sender’s address.
+
 ---
 
 ## 📈 Analytics

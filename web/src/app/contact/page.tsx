@@ -12,14 +12,31 @@ export default function ContactPage() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const onSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [error, setError] = useState<string | null>(null);
+  const [hp, setHp] = useState(""); // honeypot
+
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const mailto = new URL(`mailto:mfjdevelopments@gmail.com`);
-    const subject = `Portfolio contact from ${name || "Someone"}`;
-    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-    mailto.searchParams.set("subject", subject);
-    mailto.searchParams.set("body", body);
-    window.location.href = mailto.toString();
+    setStatus("sending");
+    setError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message, hp }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.ok) throw new Error(data.error || "Failed to send");
+      setStatus("sent");
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch (error: unknown) {
+      setStatus("error");
+      const message = error instanceof Error ? error.message : "Something went wrong";
+      setError(message);
+    }
   };
 
   return (
@@ -52,6 +69,9 @@ export default function ContactPage() {
       <section className="md:col-span-3 rounded-2xl border bg-background/40 p-6 ring-1 ring-inset ring-[var(--border)]">
         <h2 className="font-semibold mb-4">Send a message</h2>
         <form onSubmit={onSubmit} className="grid gap-4">
+          {/* honeypot */}
+          <label className="sr-only" htmlFor="company">Company</label>
+          <input id="company" name="company" autoComplete="off" tabIndex={-1} className="hidden" value={hp} onChange={(e)=>setHp(e.target.value)} />
           <div className="grid gap-1">
             <label className="text-sm" htmlFor="name">Name</label>
             <Input id="name" value={name} onChange={(e) => setName(e.target.value)} required placeholder="Your name" />
@@ -65,8 +85,9 @@ export default function ContactPage() {
             <Textarea id="message" rows={6} value={message} onChange={(e) => setMessage(e.target.value)} required placeholder="How can I help?" />
           </div>
           <div className="flex items-center gap-3">
-            <Button type="submit">Send</Button>
-            <span className="text-xs text-muted-foreground">Or email me directly.</span>
+            <Button type="submit" disabled={status === "sending"}>{status === "sending" ? "Sending..." : "Send"}</Button>
+            {status === "sent" && <span className="text-xs text-green-400">Message sent! I’ll reply soon.</span>}
+            {status === "error" && <span className="text-xs text-red-400">{error}</span>}
           </div>
         </form>
       </section>
