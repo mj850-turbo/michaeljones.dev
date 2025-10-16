@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Project } from "@/types/project";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
@@ -7,6 +7,12 @@ import Image from "next/image";
 export default function ProjectCard({ project }: { project: Project }) {
   return (
     <Card className="group relative overflow-hidden border-[color:var(--border)] bg-card/80 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-[linear-gradient(var(--secondary),var(--accent))] before:opacity-0 group-hover:before:opacity-100">
+      {/* Whole-card clickable overlay to details */}
+      <Link
+        href={`/projects/${project.slug}`}
+        aria-label={`View details for ${project.title}`}
+        className="absolute inset-0 z-10 rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
+      />
       {/* Media */}
       <div className="px-6">
         <div
@@ -33,27 +39,12 @@ export default function ProjectCard({ project }: { project: Project }) {
       <CardContent>
         <div className="flex flex-wrap gap-2">
           {project.stack.map((s) => (
-            <Badge key={s} variant="secondary" className="bg-secondary/20 text-secondary-foreground border border-[color:var(--border)]">
+            <Badge key={s} variant="secondary">
               {s}
             </Badge>
           ))}
         </div>
       </CardContent>
-      <CardFooter className="flex gap-4">
-        {project.links.live && (
-          <Link className="text-sm underline" href={project.links.live} target="_blank" rel="noreferrer">
-            Live
-          </Link>
-        )}
-        {project.links.repo && (
-          <Link className="text-sm underline" href={project.links.repo} target="_blank" rel="noreferrer">
-            GitHub
-          </Link>
-        )}
-        <Link className="text-sm underline" href={`/projects/${project.slug}`}>
-          Details
-        </Link>
-      </CardFooter>
     </Card>
   );
 }

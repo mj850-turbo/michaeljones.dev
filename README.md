@@ -1,11 +1,11 @@
 # 🌐 Michael Jones — Portfolio & Project Showcase
 
-**Live Site:** _Coming soon on [michaeljones.dev](https://michaeljones.dev)_  
+**Live Site:** _Coming soon on [michaelfjones.com](https://michaelfjones.com)_  
 **Author:** Michael F. Jones  
 **Location:** Fayetteville, Arkansas  
-**Email:** [jonesmf58@gmail.com](mailto:jonesmf58@gmail.com)  
-**LinkedIn:** [linkedin.com/in/michael-jones](#)  
-**GitHub:** [github.com/michaelfjones](#)
+**Email:** [mfjdevelopments@gmail.com](mailto:mfjdevelopments@gmail.com)  
+**LinkedIn:** [linkedin.com/in/michael-jones-58a03124b](https://www.linkedin.com/in/michael-jones-58a03124b/)  
+**GitHub:** [github.com/mj850-turbo](https://github.com/mj850-turbo)
 
 ---
 
@@ -25,7 +25,7 @@ The site is designed to serve as both a **personal brand** and a **proof of comp
 
 | Category | Details |
 |-----------|----------|
-| **Project Name** | michaeljones.dev |
+| **Project Name** | michaelfjones.com |
 | **Type** | Portfolio / Personal Website |
 | **Primary Goal** | Establish a public, credible developer presence |
 | **Target Audience** | Recruiters, engineering managers, local clients |

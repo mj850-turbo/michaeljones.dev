@@ -14,7 +14,7 @@ export default function ContactPage() {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailto = new URL(`mailto:jonesmf58@gmail.com`);
+    const mailto = new URL(`mailto:mfjdevelopments@gmail.com`);
     const subject = `Portfolio contact from ${name || "Someone"}`;
     const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
     mailto.searchParams.set("subject", subject);
@@ -32,20 +32,20 @@ export default function ContactPage() {
         <h1 className="text-2xl font-semibold tracking-tight">Let’s connect</h1>
         <p className="mt-2 text-sm text-muted-foreground">I respond within 1–2 business days. Prefer email? Use the direct link below.</p>
         <div className="mt-4 grid grid-cols-3 gap-2">
-          <Link href="mailto:jonesmf58@gmail.com" className="flex items-center gap-2 rounded-lg border bg-background/40 px-3 py-2 ring-1 ring-inset ring-[var(--border)] hover:bg-accent transition-colors">
+          <Link href="mailto:mfjdevelopments@gmail.com" className="flex items-center gap-2 rounded-lg border bg-background/40 px-3 py-2 ring-1 ring-inset ring-[var(--border)] hover:bg-accent transition-colors">
             <Mail className="h-4 w-4 text-primary" />
             <span className="text-sm">Email</span>
           </Link>
-          <Link href="https://github.com/michaelfjones" target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-lg border bg-background/40 px-3 py-2 ring-1 ring-inset ring-[var(--border)] hover:bg-accent transition-colors">
+          <Link href="https://github.com/mj850-turbo" target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-lg border bg-background/40 px-3 py-2 ring-1 ring-inset ring-[var(--border)] hover:bg-accent transition-colors">
             <Github className="h-4 w-4 text-primary" />
             <span className="text-sm">GitHub</span>
           </Link>
-          <Link href="https://linkedin.com/in/michael-jones" target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-lg border bg-background/40 px-3 py-2 ring-1 ring-inset ring-[var(--border)] hover:bg-accent transition-colors">
+          <Link href="https://www.linkedin.com/in/michael-jones-58a03124b/" target="_blank" rel="noreferrer" className="flex items-center gap-2 rounded-lg border bg-background/40 px-3 py-2 ring-1 ring-inset ring-[var(--border)] hover:bg-accent transition-colors">
             <Linkedin className="h-4 w-4 text-primary" />
             <span className="text-sm">LinkedIn</span>
           </Link>
         </div>
-        <p className="mt-3 text-xs text-muted-foreground">Direct email: <a className="underline" href="mailto:jonesmf58@gmail.com">jonesmf58@gmail.com</a></p>
+        <p className="mt-3 text-xs text-muted-foreground">Direct email: <a className="underline" href="mailto:mfjdevelopments@gmail.com">mfjdevelopments@gmail.com</a></p>
       </section>
 
       {/* Right: form */}

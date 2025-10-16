@@ -94,7 +94,7 @@ export default function Home() {
             "shadcn/ui",
             "Supabase",
           ].map((t) => (
-            <Badge key={t} variant="secondary" className="bg-card/80 border border-[color:var(--border)] text-foreground/90">
+            <Badge key={t} variant="secondary">
               {t}
             </Badge>
           ))}
@@ -107,21 +107,21 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
         >
-          <div className="rounded-xl border bg-background/40 px-4 py-3 flex items-center gap-3 ring-1 ring-inset ring-[var(--border)]">
+          <div className="rounded-xl border px-4 py-3 flex items-center gap-3 ring-1 ring-inset ring-[var(--border)]" style={{ background: "var(--badge-surface)" }}>
             <Code2 className="h-5 w-5 text-primary" />
             <div className="text-left">
               <p className="text-sm font-medium">Production Projects</p>
               <p className="text-xs text-muted-foreground">3+ featured builds</p>
             </div>
           </div>
-          <div className="rounded-xl border bg-background/40 px-4 py-3 flex items-center gap-3 ring-1 ring-inset ring-[var(--border)]">
+          <div className="rounded-xl border px-4 py-3 flex items-center gap-3 ring-1 ring-inset ring-[var(--border)]" style={{ background: "var(--badge-surface)" }}>
             <Activity className="h-5 w-5 text-primary" />
             <div className="text-left">
               <p className="text-sm font-medium">Performance Targets</p>
               <p className="text-xs text-muted-foreground">Lighthouse ≥ 90 / 95 / 95 / 95</p>
             </div>
           </div>
-          <div className="rounded-xl border bg-background/40 px-4 py-3 flex items-center gap-3 ring-1 ring-inset ring-[var(--border)]">
+          <div className="rounded-xl border px-4 py-3 flex items-center gap-3 ring-1 ring-inset ring-[var(--border)]" style={{ background: "var(--badge-surface)" }}>
             <MapPin className="h-5 w-5 text-primary" />
             <div className="text-left">
               <p className="text-sm font-medium">Based in Fayetteville, AR</p>

@@ -6,9 +6,9 @@ export default function Footer() {
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-2">
         <p>© {new Date().getFullYear()} Michael Jones — Fayetteville, AR</p>
         <div className="flex gap-4">
-          <Link href="mailto:jonesmf58@gmail.com" className="hover:underline">Email</Link>
-          <Link href="https://github.com/michaelfjones" target="_blank" rel="noreferrer" className="hover:underline">GitHub</Link>
-          <Link href="https://linkedin.com/in/michael-jones" target="_blank" rel="noreferrer" className="hover:underline">LinkedIn</Link>
+          <Link href="mailto:mfjdevelopments@gmail.com" className="hover:underline">Email</Link>
+          <Link href="https://github.com/mj850-turbo" target="_blank" rel="noreferrer" className="hover:underline">GitHub</Link>
+          <Link href="https://www.linkedin.com/in/michael-jones-58a03124b/" target="_blank" rel="noreferrer" className="hover:underline">LinkedIn</Link>
         </div>
       </div>
     </footer>

@@ -28,13 +28,13 @@ export default function AboutPage() {
           systems, thoughtful motion, and great developer experience.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          <Badge variant="secondary" className="bg-card/80 border border-[color:var(--border)]">
+          <Badge variant="secondary">
             <MapPin className="mr-1 h-3.5 w-3.5" /> Fayetteville, AR
           </Badge>
-          <Badge variant="secondary" className="bg-card/80 border border-[color:var(--border)]">
+          <Badge variant="secondary">
             <Code2 className="mr-1 h-3.5 w-3.5" /> React · Next.js · TS
           </Badge>
-          <Badge variant="secondary" className="bg-card/80 border border-[color:var(--border)]">
+          <Badge variant="secondary">
             <Sparkles className="mr-1 h-3.5 w-3.5" /> UI/UX & Accessibility
           </Badge>
         </div>
@@ -72,7 +72,7 @@ export default function AboutPage() {
           <h2 className="font-semibold">Core Stack</h2>
           <div className="mt-3 flex flex-wrap gap-2">
             {["React", "Next.js", "TypeScript", "Tailwind", "shadcn/ui", "Supabase"].map((s) => (
-              <Badge key={s} variant="secondary" className="bg-card/80 border border-[color:var(--border)]">{s}</Badge>
+              <Badge key={s} variant="secondary">{s}</Badge>
             ))}
           </div>
         </div>

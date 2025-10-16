@@ -34,7 +34,7 @@ export const projects: Project[] = [
       "This site: clean UI, modern tooling, and accessible components with shadcn/ui.",
     stack: ["Next.js", "Tailwind", "shadcn/ui"],
     links: {
-      live: "https://michaeljones.dev",
+      live: "https://michaelfjones.com",
       repo: "https://github.com/michaelfjones/michaeljones.dev",
     },
     image: "/images/mj.jpg",

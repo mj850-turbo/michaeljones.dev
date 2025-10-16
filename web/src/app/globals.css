@@ -46,6 +46,9 @@
 :root {
   --radius: 0.875rem;
   --shadow-primary: rgba(0, 0, 0, 0.35);
+  --badge-surface: rgba(0, 0, 0, 0.08);
+  --badge-foreground: var(--foreground);
+  --badge-border: rgba(0, 0, 0, 0.12);
 }
 
 /* Palette definitions */
@@ -96,6 +99,9 @@ html[data-mode="light"][data-theme="palette-default"] {
   --glow-primary: rgba(138, 131, 218, 0.35);
   --glow-secondary: rgba(251, 213, 189, 0.35);
   --shadow-primary: rgba(70, 54, 153, 0.35);
+  --badge-surface: rgba(138, 131, 218, 0.16);
+  --badge-foreground: #1f1a2c;
+  --badge-border: rgba(138, 131, 218, 0.28);
 }
 
 html[data-mode="dark"][data-theme="palette-default"] {
@@ -145,6 +151,9 @@ html[data-mode="dark"][data-theme="palette-default"] {
   --glow-primary: rgba(223, 182, 178, 0.4);
   --glow-secondary: rgba(133, 79, 108, 0.35);
   --shadow-primary: rgba(133, 79, 108, 0.35);
+  --badge-surface: rgba(223, 182, 178, 0.26);
+  --badge-foreground: #fbe4d8;
+  --badge-border: rgba(223, 182, 178, 0.38);
 }
 html[data-mode="light"][data-theme="palette-1"] {
   color-scheme: light;
@@ -192,6 +201,9 @@ html[data-mode="light"][data-theme="palette-1"] {
   --cta-gradient-end: rgba(23, 72, 113, 0.3);
   --glow-primary: rgba(167, 118, 147, 0.4);
   --glow-secondary: rgba(23, 72, 113, 0.35);
+  --badge-surface: rgba(167, 118, 147, 0.16);
+  --badge-foreground: #13233c;
+  --badge-border: rgba(167, 118, 147, 0.28);
 }
 
 html[data-mode="dark"][data-theme="palette-1"] {
@@ -240,6 +252,9 @@ html[data-mode="dark"][data-theme="palette-1"] {
   --cta-gradient-end: rgba(23, 72, 113, 0.55);
   --glow-primary: rgba(167, 118, 147, 0.35);
   --glow-secondary: rgba(74, 127, 167, 0.35);
+  --badge-surface: rgba(74, 127, 167, 0.28);
+  --badge-foreground: #f2f3f4;
+  --badge-border: rgba(167, 118, 147, 0.32);
 }
 
 html[data-mode="light"][data-theme="palette-2"] {
@@ -288,6 +303,9 @@ html[data-mode="light"][data-theme="palette-2"] {
   --cta-gradient-end: rgba(87, 56, 148, 0.35);
   --glow-primary: rgba(9, 205, 205, 0.45);
   --glow-secondary: rgba(87, 56, 148, 0.35);
+  --badge-surface: rgba(9, 205, 205, 0.18);
+  --badge-foreground: #1b1a3a;
+  --badge-border: rgba(9, 205, 205, 0.28);
 }
 
 html[data-mode="dark"][data-theme="palette-2"] {
@@ -336,6 +354,9 @@ html[data-mode="dark"][data-theme="palette-2"] {
   --cta-gradient-end: rgba(87, 56, 148, 0.5);
   --glow-primary: rgba(9, 205, 205, 0.4);
   --glow-secondary: rgba(129, 69, 158, 0.35);
+  --badge-surface: rgba(9, 205, 205, 0.28);
+  --badge-foreground: #f9f7ec;
+  --badge-border: rgba(129, 69, 158, 0.32);
 }
 
 html[data-mode="light"][data-theme="palette-3"] {
@@ -384,6 +405,9 @@ html[data-mode="light"][data-theme="palette-3"] {
   --cta-gradient-end: rgba(251, 213, 189, 0.3);
   --glow-primary: rgba(138, 131, 218, 0.35);
   --glow-secondary: rgba(251, 213, 189, 0.35);
+  --badge-surface: rgba(138, 131, 218, 0.16);
+  --badge-foreground: #1f1a2c;
+  --badge-border: rgba(138, 131, 218, 0.28);
 }
 
 html[data-mode="dark"][data-theme="palette-3"] {
@@ -432,6 +456,9 @@ html[data-mode="dark"][data-theme="palette-3"] {
   --cta-gradient-end: rgba(70, 54, 153, 0.5);
   --glow-primary: rgba(251, 213, 189, 0.4);
   --glow-secondary: rgba(138, 131, 218, 0.35);
+  --badge-surface: rgba(251, 213, 189, 0.28);
+  --badge-foreground: #fbf5f0;
+  --badge-border: rgba(138, 131, 218, 0.32);
 }
 
 html[data-mode="light"][data-theme="palette-4"] {
@@ -480,6 +507,9 @@ html[data-mode="light"][data-theme="palette-4"] {
   --cta-gradient-end: rgba(82, 43, 91, 0.35);
   --glow-primary: rgba(133, 79, 108, 0.35);
   --glow-secondary: rgba(82, 43, 91, 0.3);
+  --badge-surface: rgba(223, 182, 178, 0.2);
+  --badge-foreground: #2b124c;
+  --badge-border: rgba(133, 79, 108, 0.3);
 }
 
 html[data-mode="dark"][data-theme="palette-4"] {
@@ -528,6 +558,9 @@ html[data-mode="dark"][data-theme="palette-4"] {
   --cta-gradient-end: rgba(82, 43, 91, 0.5);
   --glow-primary: rgba(223, 182, 178, 0.4);
   --glow-secondary: rgba(133, 79, 108, 0.35);
+  --badge-surface: rgba(223, 182, 178, 0.26);
+  --badge-foreground: #fbe4d8;
+  --badge-border: rgba(223, 182, 178, 0.38);
 }
 
 html[data-mode="light"][data-theme="palette-5"] {
@@ -576,6 +609,9 @@ html[data-mode="light"][data-theme="palette-5"] {
   --cta-gradient-end: rgba(49, 75, 110, 0.3);
   --glow-primary: rgba(49, 75, 110, 0.35);
   --glow-secondary: rgba(189, 179, 163, 0.35);
+  --badge-surface: rgba(129, 151, 172, 0.18);
+  --badge-foreground: #0e141c;
+  --badge-border: rgba(129, 151, 172, 0.3);
 }
 
 html[data-mode="dark"][data-theme="palette-5"] {
@@ -624,6 +660,9 @@ html[data-mode="dark"][data-theme="palette-5"] {
   --cta-gradient-end: rgba(49, 75, 110, 0.5);
   --glow-primary: rgba(129, 151, 172, 0.35);
   --glow-secondary: rgba(49, 75, 110, 0.35);
+  --badge-surface: rgba(129, 151, 172, 0.28);
+  --badge-foreground: #f4f5f6;
+  --badge-border: rgba(129, 151, 172, 0.34);
 }
 
 @layer base {
@@ -643,8 +682,8 @@ html[data-mode="dark"][data-theme="palette-5"] {
   }
 
   .mask-gradient-b-40 {
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 72%, rgba(0, 0, 0, 0.35) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 72%, rgba(0, 0, 0, 0.35) 100%);
   }
 
   .text-gradient-accent {

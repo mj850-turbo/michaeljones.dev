@@ -6,14 +6,16 @@ import { projects } from "@/data/projects";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
-type Params = { params: { slug: string } };
+type PageParams = { slug: string };
+type PageProps = { params: Promise<PageParams> };
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }: Params): Metadata {
-  const project = projects.find((p) => p.slug === params.slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
   return {
     title: `${project.title} — Project`,
@@ -21,8 +23,9 @@ export function generateMetadata({ params }: Params): Metadata {
   };
 }
 
-export default function ProjectPage({ params }: Params) {
-  const project = projects.find((p) => p.slug === params.slug);
+export default async function ProjectPage({ params }: PageProps) {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
   if (!project) return notFound();
 
   return (
@@ -46,7 +49,7 @@ export default function ProjectPage({ params }: Params) {
           <p className="mt-2 text-muted-foreground max-w-3xl">{project.summary}</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {project.stack.map((s) => (
-              <Badge key={s} variant="secondary" className="bg-card/80 border border-[color:var(--border)]">
+              <Badge key={s} variant="secondary">
                 {s}
               </Badge>
             ))}
@@ -91,4 +94,3 @@ export default function ProjectPage({ params }: Params) {
     </div>
   );
 }
-

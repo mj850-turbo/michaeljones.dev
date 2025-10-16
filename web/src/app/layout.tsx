@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 export const metadata: Metadata = {
   title: "Michael Jones — Portfolio",
   description: "Frontend‑leaning full‑stack developer in Fayetteville, AR.",
-  metadataBase: new URL("https://michaeljones.dev"),
+  metadataBase: new URL("https://michaelfjones.com"),
 };
 
 export default function RootLayout({
